@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO APP</title>
+</head>
+<style>
+
+/* 1️⃣ Body styling */
+body {
+    background-color: #f0f4f8;   /* Light background color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* 2️⃣ Dashboard container */
+.dashboard {
+    background-color: white;
+    width: 350px;
+    margin: 80px auto;   /* center the box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* 3️⃣ Heading */
+h2 {
+    color: #333;
+}
+
+/* 4️⃣ Input box */
+input {
+    width: 70%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+/* 5️⃣ Add button */
+.add-btn {
+    padding: 8px 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 6️⃣ Button hover effect */
+.add-btn:hover {
+    background-color: #45a049;
+}
+
+/* 7️⃣ Task list */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* 8️⃣ Each task item */
+li {
+    background-color: #e3e3e3;
+    margin: 8px 0;
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 9️⃣ Delete button */
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 4px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+</style>
+</body>
+
+
+
+<body>
+    <h2>My To Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter Task">
+    <button onclick="addTask()">Add</button>
+    <ul id="tasklist"></ul>
+
+    <script>
+        function addTask(){
+            let task=document.getElementById("taskInput").value;
+            if(task===""){
+                alert("please Enter a Task");
+                return;
+
+            }
+            let li=document.createElement("li");//create a new list or element
+            li.innerHTML=task;//add the task into list
+            let deleteBtn=document.createElement("button");
+            deleteBtn.innerHTML="Delete";
+            deleteBtn.onclick=function(){
+                li.remove();
+            };
+            li.appendChild(deleteBtn);
+            document.getElementById("tasklist").appendChild(li);//task will be added
+            document.getElementById("taskInput").value="";//clears input box after adding the task
+            
+
+
+
+        }
+    </script>    
+</body>
+</html>
